@@ -29,14 +29,14 @@ function validateGitHubSignature(req, res, next) {
     next();
 }
 
-app.post('/github-webhook', validateGitHubSignature, (req, res) => {
+app.post('/', validateGitHubSignature, (req, res) => {
     const event = req.headers['x-github-event'];
     const payload = req.body;
 
     console.log(`Received event: ${event}`);
     const commits = payload.commits;
     const pusher = payload.pusher;
-    console.log(commits);
+  console.log(commits.length);
     console.log(pusher);
     res.status(200).send('Webhook received');
 });
