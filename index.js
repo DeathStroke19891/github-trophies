@@ -10,7 +10,7 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-app.post(port, (req,res) -> {
+app.post('/', (req,res) => {
   console.log(req)
   res.send("Working")
 })
